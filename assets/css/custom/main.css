@@ -1,0 +1,182 @@
+/* --------------------
+FONTS 
+-----------------------*/
+@import url('../../fonts/Poppins/stylesheet.css');
+
+/* --------------------
+GLOBAL CSS
+-----------------------*/
+
+:root {
+	--main-color: #7857fe;
+	--color-1: #e91e63;
+	--color-2: #f5ae10;
+	--color-3: #09d69c;
+	--bg-dark: #2b2c2f;
+	--shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
+	--shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
+	--black-900: #000000;
+	--black-400: #555555;
+	--black-100: #f7f7f7;
+	--black-alpha-100: rgba(0, 0, 0, 0.05);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	outline: none !important;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	overflow-x: hidden;
+	line-height: 1.5;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+ul {
+	list-style: none;
+}
+
+/* --------------------
+ANIMATION
+-----------------------*/
+@keyframes spin_01 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes bounceTop_01 {
+	0%,
+	100% {
+		transform: translateY(-30px);
+	}
+
+	50% {
+		transform: translateY(0px);
+	}
+}
+
+/* --------------------
+NAVBAR
+-----------------------*/
+
+.navbar {
+	background-color: var(--main-color);
+	padding: 20px 0;
+}
+
+.navbar > .container {
+	padding: 0 15px;
+}
+
+.navbar .navbar-brand {
+	font-size: 30px;
+	color: white;
+	font-weight: 500;
+}
+
+.navbar .nav-item {
+	margin-left: 40px;
+}
+
+.navbar .nav-item .nav-link {
+	color: white;
+	text-transform: capitalize;
+	font-weight: 400;
+	padding: 5px 0;
+	font-size: 16px;
+	position: relative;
+}
+
+.navbar .nav-item .nav-link::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 1px;
+	background-color: white;
+	transition: all 0.5s ease;
+	transform: scale(0);
+}
+
+.navbar .nav-item .nav-link.active::before,
+.navbar .nav-item .nav-link:hover::before {
+	transform: scale(1);
+}
+
+/* --------------------
+HOME
+-----------------------*/
+
+.home {
+	min-height: 100vh;
+	padding: 150px 0;
+	background-color: var(--main-color);
+}
+
+.home-text h1 {
+	font-size: 45px;
+	font-weight: 700;
+	color: white;
+	margin: 0 0 20px;
+}
+.home-text p {
+	font-size: 18px;
+	line-height: 28px;
+	color: white;
+	margin: 0;
+	font-weight: 300;
+}
+
+.home .home-btn {
+	margin-top: 40px;
+}
+
+.home-img img {
+	max-width: 250px;
+	width: 100%;
+	box-shadow: var(--shadow-black-100);
+	border-radius: 32px;
+	animation: bounceTop_01 3s ease infinite;
+}
+
+.home-img {
+	position: relative;
+}
+
+.home-img .circle {
+	position: absolute;
+	z-index: 1;
+	height: 400px;
+	width: 400px;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.home-img .circle::before {
+	content: '';
+	position: absolute;
+	height: 60px;
+	width: 60px;
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 50%;
+	left: 30px;
+	top: 30px;
+	transform-origin: 170px 170px;
+	animation: spin_01 10s linear infinite;
+}
